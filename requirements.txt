@@ -3,3 +3,7 @@ pydantic>=1.10.12,<2.10.0
 sqlalchemy>=2.0.25,<3.0
 stripe>=13.0,<14.0
 uvicorn[standard]>=0.23.2
+# ... existing lines ...
+requests==2.32.0
+# Add this line at the bottom:
+itsdangerous>=2.1.2
