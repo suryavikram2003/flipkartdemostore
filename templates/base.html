@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Simple Shop{% endblock %}</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-100 text-slate-900">
+    <!-- Top navbar similar to Flipkart -->
+    <header class="bg-[#2874F0] text-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 py-2 flex items-center gap-4">
+        <a href="/" class="flex items-center gap-1">
+          <span class="text-xl font-semibold tracking-tight">Flipkart</span>
+          <span class="ml-1 text-[11px] italic text-yellow-300 hidden sm:inline">
+            Demo&nbsp;Store
+          </span>
+        </a>
+
+        <!-- Search bar -->
+        <form
+          method="get"
+          action="/"
+          class="flex-1 max-w-2xl hidden sm:flex items-center"
+        >
+          <input
+            type="text"
+            name="q"
+            placeholder="Search for products, brands and more"
+            class="w-full rounded-l-md border-0 px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none"
+          />
+          <button
+            type="submit"
+            class="rounded-r-md bg-white px-4 py-2 text-sm font-medium text-[#2874F0]"
+          >
+            Search
+          </button>
+        </form>
+
+        <nav class="ml-auto flex items-center gap-3 text-sm">
+          <a href="/profile" class="font-medium hover:underline">
+            Login / Profile
+          </a>
+          <a href="/dashboard" class="hidden sm:inline hover:underline">
+            My Orders
+          </a>
+          <a
+            href="/cart"
+            class="relative inline-flex items-center gap-1 rounded-md bg-[#1f5ec0] px-3 py-1.5 font-medium hover:bg-[#194c9a]"
+          >
+            <span>Cart</span>
+            {% if cart_count is defined and cart_count > 0 %}
+            <span
+              class="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-yellow-300 text-xs font-semibold text-[#1f2937]"
+            >
+              {{ cart_count }}
+            </span>
+            {% endif %}
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="border-t border-slate-200 mt-12">
+      <div class="max-w-7xl mx-auto px-4 py-6 text-xs text-slate-500 flex justify-between">
+        <span>&copy; {{ 2026 }} Simple Shop. Demo store.</span>
+        <span>Built with FastAPI &amp; Tailwind CSS</span>
+      </div>
+    </footer>
+  </body>
+  </html>

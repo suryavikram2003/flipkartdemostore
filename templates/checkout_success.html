@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Order placed · Simple Shop{% endblock %}
+
+{% block content %}
+<section class="max-w-xl mx-auto text-center">
+  <div
+    class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-6 w-6">
+      <path
+        d="M9.00039 16.2L5.40039 12.6L6.80039 11.2L9.00039 13.4L17.2004 5.2L18.6004 6.6L9.00039 16.2Z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <h1 class="text-2xl font-semibold tracking-tight text-slate-900">Order confirmed</h1>
+  <p class="mt-2 text-sm text-slate-500">
+    This is a demo checkout. No real payment was processed.
+  </p>
+
+  <div class="mt-8 space-y-4 rounded-2xl bg-white p-6 text-left shadow-sm ring-1 ring-slate-100">
+    <h2 class="text-sm font-semibold text-slate-900">Order summary</h2>
+    <ul class="space-y-3 text-sm">
+      {% for row in items %}
+      <li class="flex justify-between gap-4">
+        <span class="text-slate-700">
+          {{ row.product.name }}
+          <span class="text-xs text-slate-500">× {{ row.quantity }}</span>
+        </span>
+        <span class="font-medium text-slate-900">
+          ₹{{ "%.2f"|format(row.line_total) }}
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="mt-2 flex justify-between border-t border-slate-100 pt-2 text-sm font-semibold text-slate-900">
+      <span>Total</span>
+      <span>₹{{ "%.2f"|format(subtotal) }}</span>
+    </div>
+  </div>
+
+  <div class="mt-8 flex justify-center">
+    <a
+      href="/"
+      class="inline-flex items-center rounded-full bg-slate-900 px-6 py-2.5 text-sm font-medium text-white hover:bg-slate-800 transition"
+    >
+      Back to products
+    </a>
+  </div>
+</section>
+{% endblock %}
