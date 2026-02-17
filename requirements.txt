@@ -1,29 +1,6 @@
-# FastAPI framework
-fastapi==0.95.2
-
-# Pydantic without Rust dependency
-pydantic==1.10.12
-
-# Uvicorn ASGI server
-uvicorn[standard]==0.23.2
-
-# Multipart/form-data support
-python-multipart>=0.0.7
-
-# HTTP client
-httpx==0.28.1
-
-# Email validation
-email-validator==2.3.0
-
-# Stripe payments
-stripe==13.1.2
-
-# Database / ORM
-sqlalchemy==2.0.25
-
-# Async file support
-aiofiles==23.1.0
-
-# Requests library
-requests==2.32.0
+fastapi>=0.95.2,<0.120
+pydantic>=1.10.12,<3.0     # or even pydantic>=2.0 if you can
+uvicorn[standard]>=0.23.2
+sqlalchemy>=2.0.25
+stripe>=13.0
+httpx>=0.28
